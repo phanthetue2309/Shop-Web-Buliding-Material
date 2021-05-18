@@ -36,7 +36,7 @@ class Product(models.Model):
         return self.name
 
     def get_absolute_url(self):
-        return reverse('list-product')
+        return reverse('Product:list-product')
 
     class Meta:
         ordering = ['type_product__name']

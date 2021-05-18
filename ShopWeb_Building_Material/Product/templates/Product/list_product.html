@@ -2,6 +2,7 @@
 {% block content %}
 
 <br>
+<center><h2><strong>BẢNG BÁO GIÁ SẮT THÉP</strong></h2></center>
 <table border = "1" style="width:100%" >
         <tr>
             <th>Tên Sản Phẩm</th>
@@ -14,9 +15,9 @@
     {% for product in products %}
 <!--           remember : url make same in the urls.py -->
         <tr>
-            <td> <a  href="{% url 'product-detail' product.id  %}">{{product.name}}</a></td>
+            <td> <a  href="{% url 'Product:product-detail' product.id  %}">{{product.name}}</a></td>
 <!--           href to input bill detail  -->
-            <td><a  href="{% url 'product-list-type' product.type_product.name  %}">{{product.type_product.name}}</a> </td>  
+            <td><a  href="{% url 'Product:product-list-type' product.type_product.name  %}">{{product.type_product.name}}</a> </td>  
             <td>{{product.calculationUnit}} </td>
             <td>{{product.selling_price}}</td>
 

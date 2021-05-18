@@ -1,4 +1,4 @@
-{% extends "vatlieu/base.html" %}
+{% extends "WebShop/base.html" %}
 {% load crispy_forms_tags %}
 {% block content %}
     <div class="content-section">
@@ -14,7 +14,7 @@
             <div class="form-group">
                 <button class="btn btn-outline-info" type="submit">Login</button>
             </div>
-             <a href="{% url 'social:begin' 'facebook' %}">Login with Facebook</a>
+             {% comment %} <a href="{% url 'social:begin' 'facebook' %}">Login with Facebook</a> {% endcomment %}
         </form>
         <div class="border-top pt-3">
             <small class="text-muted">

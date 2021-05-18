@@ -1,8 +1,7 @@
 from django.db import models
 from django.contrib.auth.models import User
-from Provider.models import Provider
+from People.models import Provider,Customer
 from Product.models import Product
-from Customer.models import Customer
 from Warehouse.models import Warehouse
 from datetime import datetime    
 from django.utils.translation import gettext as _ # using in datetime
@@ -31,7 +30,7 @@ class InputBill(Bill):
         return str(self.provider)
 
     def get_absolute_url(self):
-        return reverse('input-bill-detail-create', kwargs={'pk': self.pk})
+        return reverse('Bill:input-bill-detail-create', kwargs={'pk': self.pk})
 
 
 class DetailInputBill(models.Model):
@@ -42,13 +41,13 @@ class DetailInputBill(models.Model):
     price = models.IntegerField(default=10000)
 
     def __str__(self):
-        return str(self.product.name)
+        return str(self.id,self.count,self.product.name)
 
     def get_absolute_url(self):
-        return reverse('input-bill-detail-create', kwargs={'pk': self.pk})
+        return reverse('Bill:input-bill-detail-create', kwargs={'pk': self.pk})
 
     def get_update_return(self):
-        return reverse('input-bill-detail', kwargs={'pk': self.input_bill.pk})
+        return reverse('Bill:input-bill-detail', kwargs={'pk': self.input_bill.pk})
 
 
 # output
@@ -60,7 +59,7 @@ class OutputBill(Bill):
         return str(self.customer)
 
     def get_absolute_url(self):
-        return reverse('output-bill-detail-create', kwargs={'pk': self.pk})
+        return reverse('Bill:output-bill-detail-create', kwargs={'pk': self.pk})
 
 
 class DetailOutputBill(models.Model):
@@ -71,10 +70,10 @@ class DetailOutputBill(models.Model):
     price = models.IntegerField(default=10000)
 
     def __str__(self):
-        return str(self.warehouse.product.name)
+        return str(self.id,self.count,self.warehouse.product.name)
 
     def get_absolute_url(self):
-        return reverse('output-bill-detail-create', kwargs={'pk': self.pk})
+        return reverse('Bill:output-bill-detail-create', kwargs={'pk': self.pk})
 
     def get_update_return(self):
-        return reverse('output-bill-detail', kwargs={'pk': self.output_bill.pk})
+        return reverse('Bill:output-bill-detail', kwargs={'pk': self.output_bill.pk})

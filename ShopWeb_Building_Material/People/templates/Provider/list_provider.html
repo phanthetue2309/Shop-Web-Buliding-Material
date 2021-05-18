@@ -12,7 +12,7 @@
     {% for provider in providers %}
 <!--           remember : url make same in the urls.py -->
         <tr>
-            <td> <a  href="{% url 'provider-detail' provider.id  %}">{{provider.name}}</a></td>
+            <td> <a  href="{% url 'People:provider-detail' provider.id  %}">{{provider.name}}</a></td>
 <!--           href to input bill detail  -->
             <td>{{provider.address}} </td>
             <td>{{provider.phone_number}}</td>

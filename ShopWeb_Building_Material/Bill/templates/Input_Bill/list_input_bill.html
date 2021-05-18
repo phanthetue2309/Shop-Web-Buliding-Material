@@ -13,11 +13,11 @@
 
 
 <!--           remember : url make same in the urls.py -->
-        <tr><td><center> <a  href="{% url 'input-bill-detail' bill.id  %}"><h5>{{bill.id}}</h5></a></center></td>
+        <tr><td><center> <a  href="{% url 'Bill:input-bill-detail' bill.id  %}"><h5>{{bill.id}}</h5></a></center></td>
 <!--           href to input bill detail  -->
             <td><center>{{bill.provider.name}} </center></td>
             <td><center>
-                <a  href="{% url 'staff-input-bill' bill.staff.username  %}"><h5>{{ bill.staff.username }}</h5></a>
+                <a  href="{% url 'Bill:staff-input-bill' bill.staff.username  %}"><h5>{{ bill.staff.username }}</h5></a>
 <!--           href to staff bill input   -->
                 </center></td>
             <td><center>{{bill.input_date}}</center></td>

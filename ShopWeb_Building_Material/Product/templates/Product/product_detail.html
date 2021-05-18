@@ -1,11 +1,11 @@
-{% extends "vatlieu/base.html" %}
+{% extends "WebShop/base.html" %}
 {% load has_group %}
 {% block content %}
 
 <!--   Check if staff == user then show Update and Delete -->
 
 <h3>Product Information</h3>
-<table border="1" style="width:30%" content="Chi Tiết Hóa Đơn ">
+<table border="1" style="width:50%" content="Chi Tiết Hóa Đơn ">
     <tr>
         <th>Product</th>
         <td>{{ object.name }}</td>
@@ -33,14 +33,19 @@
         <th>Origin</th>
         <td>{{ object.origin }}</td>
     </tr>
+    <tr>
+        <th>Provider</th>
+        <td>{{ object.provider.name }}</td>
+    </tr>
+
 
     
 </table>
 {% if user.is_authenticated and request.user|has_group:"admin" %}
 
 <div>
-    <a class="btn btn-secondary btn-sm mt-1 mb-1" href="{% url 'product-update' object.id %}">Update</a>
-    <a class="btn btn-danger btn-sm mt-1 mb-1" href="{% url 'product-delete' object.id %}">Delete</a>
+    <a class="btn btn-secondary btn-sm mt-1 mb-1" href="{% url 'Product:product-update' object.id %}">Update</a>
+    <a class="btn btn-danger btn-sm mt-1 mb-1" href="{% url 'Product:product-delete' object.id %}">Delete</a>
 </div>
 {% endif %}
 {% endblock content %}

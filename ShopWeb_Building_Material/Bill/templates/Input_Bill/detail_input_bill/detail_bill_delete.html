@@ -1,4 +1,4 @@
-{% extends "vatlieu/base.html" %}
+{% extends "WebShop/base.html" %}
 {% block content %}
     <div class="content-section">
         <form method="POST">
@@ -9,7 +9,7 @@
             </fieldset>
             <div class="form-group">
                 <button class="btn btn-outline-danger" type="submit">Yes, Delete</button>
-                <a class="btn btn-outline-secondary" href="{% url 'input-bill-detail' object.input_bill.id %}">Cancel</a>
+                <a class="btn btn-outline-secondary" href="{% url 'Bill:input-bill-detail' object.input_bill.id %}">Cancel</a>
             </div>
         </form>
     </div>

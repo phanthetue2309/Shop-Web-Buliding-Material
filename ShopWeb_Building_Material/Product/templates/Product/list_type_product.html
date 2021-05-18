@@ -12,7 +12,7 @@
     {% for product in products %}
 <!--           remember : url make same in the urls.py -->
         <tr>
-            <td> <a  href="{% url 'product-detail' product.id  %}">{{product.name}}</a></td>
+            <td> <a  href="{% url 'Product:product-detail' product.id  %}">{{product.name}}</a></td>
 <!--           href to input bill detail  -->
             <td>{{product.type_product.name}} </td>  
             <td>{{product.calculationUnit}} </td>
